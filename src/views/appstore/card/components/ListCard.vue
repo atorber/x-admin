@@ -82,9 +82,19 @@ const cardLogoClass = computed(() => [
       <p class="list-card-item_detail--name text-text_color_primary">
         {{ product.name }}
       </p>
-      <p class="list-card-item_detail--desc text-text_color_regular">
-        {{ product.description }}
-      </p>
+      <el-tooltip
+        placement="top"
+        :show-after="500"
+        :hide-after="0"
+        popper-class="custom-tooltip"
+      >
+        <template #content>
+          <div class="tooltip-content">{{ product.description }}</div>
+        </template>
+        <p class="list-card-item_detail--desc text-text_color_regular">
+          {{ product.description }}
+        </p>
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -156,6 +166,16 @@ const cardLogoClass = computed(() => [
     .list-card-item_detail--operation--tag {
       color: #bababa;
     }
+  }
+}
+
+:deep(.custom-tooltip) {
+  max-width: 100px;
+
+  .tooltip-content {
+    line-height: 1.5;
+    word-break: break-all;
+    white-space: pre-wrap;
   }
 }
 </style>

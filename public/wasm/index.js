@@ -202,15 +202,16 @@
             var target = IS_MAP
               ? create($this, length)
               : IS_FILTER
-              ? create($this, 0)
-              : undefined;
+                ? create($this, 0)
+                : undefined;
             var value, result;
             for (; length > index; index++)
               if (NO_HOLES || index in self) {
                 value = self[index];
                 result = boundFunction(value, index, O);
                 if (TYPE) {
-                  if (IS_MAP) target[index] = result; // map
+                  if (IS_MAP)
+                    target[index] = result; // map
                   else if (result)
                     switch (TYPE) {
                       case 3:
@@ -510,19 +511,19 @@
               return it === undefined
                 ? "Undefined"
                 : it === null
-                ? "Null"
-                : // @@toStringTag case
-                typeof (tag = tryGet((O = Object(it)), TO_STRING_TAG)) ==
-                  "string"
-                ? tag
-                : // builtinTag case
-                CORRECT_ARGUMENTS
-                ? classofRaw(O)
-                : // ES3 arguments fallback
-                (result = classofRaw(O)) == "Object" &&
-                  typeof O.callee == "function"
-                ? "Arguments"
-                : result;
+                  ? "Null"
+                  : // @@toStringTag case
+                    typeof (tag = tryGet((O = Object(it)), TO_STRING_TAG)) ==
+                      "string"
+                    ? tag
+                    : // builtinTag case
+                      CORRECT_ARGUMENTS
+                      ? classofRaw(O)
+                      : // ES3 arguments fallback
+                        (result = classofRaw(O)) == "Object" &&
+                          typeof O.callee == "function"
+                        ? "Arguments"
+                        : result;
             };
 
         /***/
@@ -797,27 +798,27 @@
                     return this;
                   }
                 : KEY == "delete"
-                ? function (key) {
-                    return IS_WEAK && !isObject(key)
-                      ? false
-                      : nativeMethod.call(this, key === 0 ? 0 : key);
-                  }
-                : KEY == "get"
-                ? function get(key) {
-                    return IS_WEAK && !isObject(key)
-                      ? undefined
-                      : nativeMethod.call(this, key === 0 ? 0 : key);
-                  }
-                : KEY == "has"
-                ? function has(key) {
-                    return IS_WEAK && !isObject(key)
-                      ? false
-                      : nativeMethod.call(this, key === 0 ? 0 : key);
-                  }
-                : function set(key, value) {
-                    nativeMethod.call(this, key === 0 ? 0 : key, value);
-                    return this;
-                  }
+                  ? function (key) {
+                      return IS_WEAK && !isObject(key)
+                        ? false
+                        : nativeMethod.call(this, key === 0 ? 0 : key);
+                    }
+                  : KEY == "get"
+                    ? function get(key) {
+                        return IS_WEAK && !isObject(key)
+                          ? undefined
+                          : nativeMethod.call(this, key === 0 ? 0 : key);
+                      }
+                    : KEY == "has"
+                      ? function has(key) {
+                          return IS_WEAK && !isObject(key)
+                            ? false
+                            : nativeMethod.call(this, key === 0 ? 0 : key);
+                        }
+                      : function set(key, value) {
+                          nativeMethod.call(this, key === 0 ? 0 : key, value);
+                          return this;
+                        }
             );
           };
 
@@ -854,11 +855,11 @@
             });
             // most early implementations doesn't supports iterables, most modern - not close it correctly
             // eslint-disable-next-line no-new
-            var ACCEPT_ITERABLES = checkCorrectnessOfIteration(function (
-              iterable
-            ) {
-              new NativeConstructor(iterable);
-            });
+            var ACCEPT_ITERABLES = checkCorrectnessOfIteration(
+              function (iterable) {
+                new NativeConstructor(iterable);
+              }
+            );
             // for early implementations -0 and +0 not the same
             var BUGGY_ZERO =
               !IS_WEAK &&
@@ -1944,10 +1945,10 @@
           return value == POLYFILL
             ? true
             : value == NATIVE
-            ? false
-            : typeof detection == "function"
-            ? fails(detection)
-            : !!detection;
+              ? false
+              : typeof detection == "function"
+                ? fails(detection)
+                : !!detection;
         };
 
         var normalize = (isForced.normalize = function (string) {
@@ -2947,7 +2948,7 @@
         })("versions", []).push({
           version: "3.6.5",
           mode: IS_PURE ? "pure" : "global",
-          copyright: "© 2020 Denis Pushkarev (zloirock.ru)"
+          copyright: "© 2025 Denis Pushkarev (zloirock.ru)"
         });
 
         /***/
@@ -4193,9 +4194,9 @@
               this instanceof SymbolWrapper
                 ? new NativeSymbol(description)
                 : // in Edge 13, String(Symbol(undefined)) === 'Symbol(undefined)'
-                description === undefined
-                ? NativeSymbol()
-                : NativeSymbol(description);
+                  description === undefined
+                  ? NativeSymbol()
+                  : NativeSymbol(description);
             if (description === "") EmptyStringDescriptionStore[result] = true;
             return result;
           };
@@ -4901,12 +4902,12 @@
                 "break" === record.type || "continue" === record.type
                   ? (this.next = record.arg)
                   : "return" === record.type
-                  ? ((this.rval = this.arg = record.arg),
-                    (this.method = "return"),
-                    (this.next = "end"))
-                  : "normal" === record.type &&
-                    afterLoc &&
-                    (this.next = afterLoc),
+                    ? ((this.rval = this.arg = record.arg),
+                      (this.method = "return"),
+                      (this.next = "end"))
+                    : "normal" === record.type &&
+                      afterLoc &&
+                      (this.next = afterLoc),
                 ContinueSentinel
               );
             },
@@ -5057,17 +5058,17 @@
                 _defineProperty(target, key, source[key]);
               })
             : Object.getOwnPropertyDescriptors
-            ? Object.defineProperties(
-                target,
-                Object.getOwnPropertyDescriptors(source)
-              )
-            : ownKeys(Object(source)).forEach(function (key) {
-                Object.defineProperty(
+              ? Object.defineProperties(
                   target,
-                  key,
-                  Object.getOwnPropertyDescriptor(source, key)
-                );
-              });
+                  Object.getOwnPropertyDescriptors(source)
+                )
+              : ownKeys(Object(source)).forEach(function (key) {
+                  Object.defineProperty(
+                    target,
+                    key,
+                    Object.getOwnPropertyDescriptor(source, key)
+                  );
+                });
         }
         return target;
       }
@@ -5094,51 +5095,50 @@
       }
       function _initWorker() {
         _initWorker = _asyncToGenerator(
-          /*#__PURE__*/ _regeneratorRuntime().mark(function _callee(
-            url,
-            wasmPath
-          ) {
-            var promise;
-            return _regeneratorRuntime().wrap(function _callee$(_context) {
-              while (1)
-                switch ((_context.prev = _context.next)) {
-                  case 0:
-                    if (!captureWorker) {
-                      _context.next = 2;
-                      break;
-                    }
-                    return _context.abrupt("return", captureWorker);
-                  case 2:
-                    // captureWorker = new Worker(new URL('./capture.worker.js', import.meta.url));
-                    captureWorker = new Worker(url);
-                    workerPost({
-                      type: "initPath",
-                      info: wasmPath.toString()
-                    });
-                    promise = new Promise(resolve => {
-                      captureWorker &&
-                        captureWorker.addEventListener("message", e => {
-                          var _e$data;
-                          if (
-                            (e === null || e === void 0
-                              ? void 0
-                              : (_e$data = e.data) === null ||
-                                _e$data === void 0
-                              ? void 0
-                              : _e$data.type) === "init"
-                          ) {
-                            // wasm初始化完毕
-                            resolve(captureWorker);
-                          }
-                        });
-                    });
-                    return _context.abrupt("return", promise);
-                  case 6:
-                  case "end":
-                    return _context.stop();
-                }
-            }, _callee);
-          })
+          /*#__PURE__*/ _regeneratorRuntime().mark(
+            function _callee(url, wasmPath) {
+              var promise;
+              return _regeneratorRuntime().wrap(function _callee$(_context) {
+                while (1)
+                  switch ((_context.prev = _context.next)) {
+                    case 0:
+                      if (!captureWorker) {
+                        _context.next = 2;
+                        break;
+                      }
+                      return _context.abrupt("return", captureWorker);
+                    case 2:
+                      // captureWorker = new Worker(new URL('./capture.worker.js', import.meta.url));
+                      captureWorker = new Worker(url);
+                      workerPost({
+                        type: "initPath",
+                        info: wasmPath.toString()
+                      });
+                      promise = new Promise(resolve => {
+                        captureWorker &&
+                          captureWorker.addEventListener("message", e => {
+                            var _e$data;
+                            if (
+                              (e === null || e === void 0
+                                ? void 0
+                                : (_e$data = e.data) === null ||
+                                    _e$data === void 0
+                                  ? void 0
+                                  : _e$data.type) === "init"
+                            ) {
+                              // wasm初始化完毕
+                              resolve(captureWorker);
+                            }
+                          });
+                      });
+                      return _context.abrupt("return", promise);
+                    case 6:
+                    case "end":
+                      return _context.stop();
+                  }
+              }, _callee);
+            }
+          )
         );
         return _initWorker.apply(this, arguments);
       }
@@ -5218,71 +5218,68 @@
       }
       function _getUrl() {
         _getUrl = _asyncToGenerator(
-          /*#__PURE__*/ _regeneratorRuntime().mark(function _callee2(
-            width,
-            height,
-            imageDataBuffer,
-            angle
-          ) {
-            var canvasWith, canvasHeight, imageData, imgData;
-            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-              while (1)
-                switch ((_context2.prev = _context2.next)) {
-                  case 0:
-                    canvasWith = width;
-                    canvasHeight = height;
-                    imageData = new ImageData(imageDataBuffer, width, height);
-                    imgData = null;
-                    _context2.t0 = angle / 90;
-                    _context2.next =
-                      _context2.t0 === 1
-                        ? 7
-                        : _context2.t0 === 2
-                        ? 11
-                        : _context2.t0 === 3
-                        ? 14
-                        : 18;
-                    break;
-                  case 7:
-                    imgData = rotateImage(imageData, "r");
-                    canvasWith = height;
-                    canvasHeight = width;
-                    return _context2.abrupt("break", 20);
-                  case 11:
-                    imgData = rotateImage(imageData, "r");
-                    imgData = rotateImage(imageData, "r");
-                    return _context2.abrupt("break", 20);
-                  case 14:
-                    imgData = rotateImage(imageData, "l");
-                    canvasWith = height;
-                    canvasHeight = width;
-                    return _context2.abrupt("break", 20);
-                  case 18:
-                    imgData = imageData;
-                    return _context2.abrupt("break", 20);
-                  case 20:
-                    canvas.width = canvasWith;
-                    canvas.height = canvasHeight;
-                    ctx.putImageData(
-                      imgData,
-                      0,
-                      0,
-                      0,
-                      0,
-                      canvasWith,
-                      canvasHeight
-                    );
-                    // const blob = new Blob([imageDataBuffer.buffer], {type: 'image/png'} /* (1) */);
-                    return _context2.abrupt("return", {
-                      url: canvas.toDataURL("image/jpeg")
-                      // blob: blob,
-                    });
-                  case 24:
-                  case "end":
-                    return _context2.stop();
-                }
-            }, _callee2);
-          })
+          /*#__PURE__*/ _regeneratorRuntime().mark(
+            function _callee2(width, height, imageDataBuffer, angle) {
+              var canvasWith, canvasHeight, imageData, imgData;
+              return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+                while (1)
+                  switch ((_context2.prev = _context2.next)) {
+                    case 0:
+                      canvasWith = width;
+                      canvasHeight = height;
+                      imageData = new ImageData(imageDataBuffer, width, height);
+                      imgData = null;
+                      _context2.t0 = angle / 90;
+                      _context2.next =
+                        _context2.t0 === 1
+                          ? 7
+                          : _context2.t0 === 2
+                            ? 11
+                            : _context2.t0 === 3
+                              ? 14
+                              : 18;
+                      break;
+                    case 7:
+                      imgData = rotateImage(imageData, "r");
+                      canvasWith = height;
+                      canvasHeight = width;
+                      return _context2.abrupt("break", 20);
+                    case 11:
+                      imgData = rotateImage(imageData, "r");
+                      imgData = rotateImage(imageData, "r");
+                      return _context2.abrupt("break", 20);
+                    case 14:
+                      imgData = rotateImage(imageData, "l");
+                      canvasWith = height;
+                      canvasHeight = width;
+                      return _context2.abrupt("break", 20);
+                    case 18:
+                      imgData = imageData;
+                      return _context2.abrupt("break", 20);
+                    case 20:
+                      canvas.width = canvasWith;
+                      canvas.height = canvasHeight;
+                      ctx.putImageData(
+                        imgData,
+                        0,
+                        0,
+                        0,
+                        0,
+                        canvasWith,
+                        canvasHeight
+                      );
+                      // const blob = new Blob([imageDataBuffer.buffer], {type: 'image/png'} /* (1) */);
+                      return _context2.abrupt("return", {
+                        url: canvas.toDataURL("image/jpeg")
+                        // blob: blob,
+                      });
+                    case 24:
+                    case "end":
+                      return _context2.stop();
+                  }
+              }, _callee2);
+            }
+          )
         );
         return _getUrl.apply(this, arguments);
       }
@@ -5357,20 +5354,20 @@
                                           e === null || e === void 0
                                             ? void 0
                                             : (_e$data2 = e.data) === null ||
-                                              _e$data2 === void 0
-                                            ? void 0
-                                            : _e$data2.type;
+                                                _e$data2 === void 0
+                                              ? void 0
+                                              : _e$data2.type;
                                         _context3.next =
                                           _context3.t0 ===
                                           Events.receiveImageOnchange
                                             ? 3
                                             : _context3.t0 ===
-                                              Events.receiveImageOnSuccess
-                                            ? 15
-                                            : _context3.t0 ===
-                                              Events.receiveError
-                                            ? 21
-                                            : 26;
+                                                Events.receiveImageOnSuccess
+                                              ? 15
+                                              : _context3.t0 ===
+                                                  Events.receiveError
+                                                ? 21
+                                                : 26;
                                         break;
                                       case 3:
                                         (_ref3 = e.data || {}),
