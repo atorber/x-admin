@@ -8,12 +8,13 @@
 
 ## 简介
 
-`x-admin` 是基于`vue-pure-admin`二次开发的一款开源免费且开箱即用的简单中后台业务管理系统模版。
+`x-admin` 是基于[vue-pure-admin](https://github.com/pure-admin/vue-pure-admin)二次开发的一款开源免费且开箱即用的简单中后台业务管理系统模版。
 
-## vue-pure-admin配套保姆级文档
+相较于[vue-pure-admin](https://github.com/pure-admin/vue-pure-admin)，x-admin有以下不同：
 
-[点我查看 vue-pure-admin 文档](https://pure-admin.cn/)  
-[点我查看 @pureadmin/utils 文档](https://pure-admin-utils.netlify.app)
+- 是vue-pure-admin的一个具体项目应用实践业务模板，而不是通用组件模板
+
+- 包含了一个后台项目常用的大部分页面，包括列表页、详情页、卡片列表页、系统管理、关于等常用页面
 
 ## 预览
 
@@ -64,18 +65,6 @@ pnpm build
 ## 更新日志
 
 [CHANGELOG](./CHANGELOG.zh_CN.md)
-
-## 如何贡献
-
-非常欢迎您的加入！[提一个 Issue](https://github.com/pure-admin/vue-pure-admin/issues/new/choose) 或者提交一个 `Pull Request`
-
-**Pull Request:**
-
-1. Fork 代码!
-2. 创建自己的分支: `git checkout -b feat/xxxx`
-3. 提交您的修改: `git commit -am 'feat(function): add xxxxx'`
-4. 推送您的分支: `git push origin feat/xxxx`
-5. 提交`pull request`
 
 ## 许可证
 
