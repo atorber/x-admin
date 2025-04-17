@@ -7,6 +7,7 @@ export default {
   meta: {
     icon: "ep/guide",
     title: $t("menus.pureGuide"),
+    showLink: false,
     rank: guide
   },
   children: [

@@ -7,6 +7,7 @@ export default {
   meta: {
     icon: "ep/set-up",
     title: $t("menus.pureFlowChart"),
+    showLink: false,
     rank: flowchart
   },
   children: [

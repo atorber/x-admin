@@ -7,6 +7,7 @@ export default {
   meta: {
     icon: "ri/markdown-line",
     title: $t("menus.pureMarkdown"),
+    showLink: false,
     rank: markdown
   },
   children: [

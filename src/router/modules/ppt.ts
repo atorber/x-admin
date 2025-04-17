@@ -7,6 +7,7 @@ export default {
   meta: {
     icon: "ri/file-ppt-2-line",
     title: "PPT",
+    showLink: false,
     rank: ppt
   },
   children: [

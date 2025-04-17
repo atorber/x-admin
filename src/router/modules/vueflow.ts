@@ -6,6 +6,7 @@ export default {
   meta: {
     icon: "ep/set-up",
     title: "vue-flow",
+    showLink: false,
     rank: vueflow
   },
   children: [

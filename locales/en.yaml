@@ -63,6 +63,7 @@ panel:
   pureMultiTagsCache: MultiTags Cache
 menus:
   pureHome: Home
+  pureAppStore: App Store
   pureLogin: Login
   pureEmpty: Empty Page
   pureTable: Table
@@ -186,8 +187,8 @@ menus:
   pureVxeTable: Virtual Usage
   pureBoard: Paint Board
   pureMindMap: Mind Map
-  pureMenuOverflow: Menu Overflow Show Tooltip Text
-  pureChildMenuOverflow: Child Menu Overflow Show Tooltip Text
+  pureMenuOverflow: Line------Menu Overflow Show Tooltip Text
+  pureChildMenuOverflow: Line------Child Menu Overflow Show Tooltip Text
 status:
   pureLoad: Loading...
   pureMessage: Message
